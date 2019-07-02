@@ -1,0 +1,72 @@
+<!doctype html>
+
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title> Hex Clock </title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<style>
+    
+	html,
+	body,
+	#container {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+
+	#container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	#time {
+	 font-family: 'arial';
+	 font-size: 200px;
+	 color: #fff;
+	 margin: 0 auto;
+	}
+
+</style>
+
+<!-- Inspired by: http://www.jacopocolo.com/hexclock/ -->
+</head>
+
+<body>
+
+	<div id="container">
+		<div id="time"></div>
+	</div>
+
+
+<script>
+
+	function timeNow() {
+	  var d = new Date();
+	  var h = (d.getHours()<10?'0':'') + d.getHours();
+	  var m = (d.getMinutes()<10?'0':'') + d.getMinutes();
+	  var s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+	  var result = h+m+s;
+	  return result;
+	}
+
+	function updatePage() {
+		var t = timeNow();
+		var display = document.getElementById('time');
+		display.innerText = '#' + t;
+		var bg = document.getElementById('container');
+		bg.style.background = '#' + t;
+	}
+
+	setInterval(updatePage, 1000);
+
+</script>
+
+</body>
+
+</html>
